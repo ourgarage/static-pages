@@ -1,0 +1,19 @@
+{
+    "name": "ourgarage/static-pages",
+    "description": "Package Static Pages for Engin CMS",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OurGarage Team",
+            "email": "ourgarage@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ourgarage\\StaticPages\\": "src/"
+        }
+    }
+}
