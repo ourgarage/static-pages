@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStaticPagesTable extends Migration
+class CreateStaticpagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateStaticPagesTable extends Migration
         Schema::create('static-pages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->content('text');
+            $table->text('content');
             $table->string('slug');
             $table->string('meta_keywords');
             $table->string('meta_description');
