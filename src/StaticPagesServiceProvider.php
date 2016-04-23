@@ -9,6 +9,16 @@ class StaticPagesServiceProvider extends ServiceProvider
 
     public function boot(){
         require __DIR__ . '/Http/routes.php';
+
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'static_pages');
+
+        $this->publishes([
+            __DIR__.'/resources/views' => base_path('resources/views/packages/static-pages'),
+        ]);
+    }
+
+    public function register() {
+        $this->app->make('Ourgarage\StaticPages\Http\Controllers\StaticPagesController');
     }
 
 }

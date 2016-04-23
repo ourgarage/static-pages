@@ -12,10 +12,10 @@ class CreateStaticPagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('static-pages', function (Blueprint $table) {
+        Schema::create('static_pages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->content('text');
+            $table->text('content');
             $table->string('slug');
             $table->string('meta_keywords');
             $table->string('meta_description');
@@ -31,6 +31,6 @@ class CreateStaticPagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('static-pages');
+        Schema::drop('static_pages');
     }
 }
