@@ -16,5 +16,3 @@
     ],
 ```
 * Run `php composer.phar update`
----
-to be continue...
