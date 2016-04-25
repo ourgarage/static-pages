@@ -16,3 +16,7 @@
     ],
 ```
 * Run `php composer.phar update`
+* Add in your `config/app.php` file in providers:
+```
+Ourgarage\StaticPages\StaticPagesServiceProvider::class,
+```
