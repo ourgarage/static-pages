@@ -10,12 +10,16 @@ class StaticPagesTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1,5) as $index) {
+        foreach (range(1,10) as $index) {
             DB::table('static_pages')->insert([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'password' => bcrypt('secret'),
+                'title' => $faker->sentence,
+                'content' => $faker->text,
+                'slug' => $faker->word,
+                'meta_keywords' => $faker->sentence,
+                'meta_description' => $faker->sentence,
+                'meta_title' => $faker->sentence
             ]);
         }
     }
+
 }
