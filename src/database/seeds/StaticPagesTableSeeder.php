@@ -12,7 +12,7 @@ class StaticPagesTableSeeder extends Seeder
         $faker = Faker::create();
         foreach (range(1,10) as $index) {
             DB::table('static_pages')->insert([
-                'status' => 'STATUS_ACTIVE',
+                'status' => 1,
                 'title' => $faker->sentence,
                 'content' => $faker->text,
                 'slug' => $faker->word,
