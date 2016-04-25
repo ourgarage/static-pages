@@ -4,7 +4,7 @@ namespace Ourgarage\StaticPages\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StaticPages extends Model
+class StaticPage extends Model
 {
 
     const STATUS_ACTIVE = 1;

@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use Ourgarage\StaticPages\Models\StaticPage;
 
 class CreateStaticPagesTable extends Migration
 {
