@@ -3,6 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use Ourgarage\StaticPages\Models\StaticPage;
+
 class CreateStaticPagesTable extends Migration
 {
     /**
@@ -14,9 +16,10 @@ class CreateStaticPagesTable extends Migration
     {
         Schema::create('static_pages', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('status')->default(StaticPage::STATUS_ACTIVE)->index();
             $table->string('title');
             $table->text('content');
-            $table->string('slug');
+            $table->string('slug')->index();
             $table->string('meta_keywords');
             $table->string('meta_description');
             $table->string('meta_title');
