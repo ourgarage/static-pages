@@ -27,4 +27,8 @@ class StaticPagesController extends Controller
 
     }
 
+    public function page_index() {
+        return 'The test message.';
+    }
+
 }
