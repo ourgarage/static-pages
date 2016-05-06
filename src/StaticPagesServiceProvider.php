@@ -11,7 +11,7 @@ class StaticPagesServiceProvider extends ServiceProvider
     {
         require __DIR__ . '/Http/routes.php';
 
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'static_pages');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'staticPages');
 
         $this->publishes([
             __DIR__.'/resources/views' => base_path('resources/views/packages/static-pages'),
