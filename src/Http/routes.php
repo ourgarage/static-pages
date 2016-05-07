@@ -2,7 +2,7 @@
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Ourgarage\StaticPages\Http\Controllers'], function () {
 
-    Route::get('/pages', 'StaticPagesController@indexAdmin')->name('static-pages::admin::index-admin');
+    Route::get('/pages', 'StaticPagesController@indexAdmin')->name('static-pages::admin::index');
 
 });
 
