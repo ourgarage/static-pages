@@ -21,8 +21,8 @@ class StaticPagesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->make('Ourgarage\StaticPages\Http\Controllers\StaticPagesController');
-
-        $this->mergeConfigFrom(__DIR__.'/config/static-pages.php', 'static-pages');
+        
+        $this->mergeConfigFrom(__DIR__.'/config/static-pages.php', 'packages');
     }
 
 }
