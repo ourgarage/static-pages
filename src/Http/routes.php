@@ -2,7 +2,7 @@
 
 Route::group(['middleware' => 'web'], function () {
 
-    Route::group(['prefix' => 'admin/pages', 'namespace' => 'Ourgarage\StaticPages\Http\Controllers'], function () {
+    Route::group(['prefix' => 'admin/pages', 'middleware' => ['auth'], 'namespace' => 'Ourgarage\StaticPages\Http\Controllers'], function () {
 
         Route::get('/', 'StaticPagesController@indexAdmin')->name('static-pages::admin::index');
 

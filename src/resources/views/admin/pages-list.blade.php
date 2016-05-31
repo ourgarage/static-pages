@@ -8,8 +8,8 @@
 
 @section('body')
 
-
-
-
+    <div class="users-index">
+    @include('staticPages::admin.pages-table', ['pages', $pages])
+    </div>
 
 @endsection
