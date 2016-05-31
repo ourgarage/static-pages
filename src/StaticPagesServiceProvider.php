@@ -13,6 +13,8 @@ class StaticPagesServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/resources/views', 'staticPages');
 
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'static-pages');
+
         $this->publishes([
             __DIR__.'/resources/views' => base_path('resources/views/packages/static-pages'),
         ]);
