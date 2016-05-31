@@ -8,11 +8,6 @@ use Ourgarage\StaticPages\Models\StaticPage;
 class StaticPagesController extends Controller
 {
 
-    public function __construct()
-    {
-        //\Title::prepend(trans('dashboard.title.prepend'));
-    }
-
     public function pageList()
     {
 
@@ -39,6 +34,7 @@ class StaticPagesController extends Controller
     {
         $pages = $staticPages->orderBy('updated_at', 'desc')->paginate(20);
 
+        \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.index.title'));
 
         return view('staticPages::admin.pages-list', ['pages' => $pages]);
