@@ -12,4 +12,8 @@ return [
         'options' => 'Options',
     ],
 
+    'button' => [
+        'create' => 'Create',
+    ],
+
 ];

@@ -12,4 +12,8 @@ return [
         'options' => 'Опции',
     ],
 
+    'button' => [
+        'create' => 'Создать',
+    ],
+
 ];

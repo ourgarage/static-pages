@@ -15,11 +15,16 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.index.title'));
 
-        if (view()->exists('packages.static-pages.admin.pages-list')) {
-            return view('packages.static-pages.admin.pages-list', ['pages' => $pages]);
+        if (view()->exists('packages.static-pages.admin.index')) {
+            return view('packages.static-pages.admin.index', ['pages' => $pages]);
         } else {
-            return view('staticPages::admin.pages-list', ['pages' => $pages]);
+            return view('staticPages::admin.index', ['pages' => $pages]);
         }
+
+    }
+
+    public function createPage()
+    {
 
     }
 
