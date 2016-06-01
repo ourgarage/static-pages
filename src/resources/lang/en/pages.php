@@ -16,4 +16,8 @@ return [
         'create' => 'Create',
     ],
 
+    'create' => [
+        'title' => 'Create Page',
+    ],
+
 ];

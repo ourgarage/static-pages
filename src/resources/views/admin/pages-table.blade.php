@@ -16,7 +16,7 @@
                     <td>{{ $page->title }}</td>
                     <td>{{ df($page->created_at) }}</td>
                     <td class="for-form-inline">
-                        <form action="{{ route('admin-users-status-update', ['id' => $page->id]) }}"
+                        <form action="{{ route('static-pages::admin::status-update', ['id' => $page->id]) }}"
                               method="POST">
                             {{ csrf_field() }}
                             @if($page->status == \Ourgarage\StaticPages\Models\StaticPage::STATUS_ACTIVE)
@@ -34,7 +34,7 @@
                                     title="{{ trans('users.tooltip.edit') }}"><i class="fa fa-pencil"></i>
                             </button>
                         </form>
-                        <form action="{{ route('admin-users-destroy', ['id' => $page->id]) }}"
+                        <form action="{{ route('static-pages::admin::page-delete', ['id' => $page->id]) }}"
                               method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}

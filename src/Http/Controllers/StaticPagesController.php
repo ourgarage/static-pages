@@ -4,6 +4,7 @@ namespace Ourgarage\StaticPages\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Ourgarage\StaticPages\Models\StaticPage;
+use Notifications;
 
 class StaticPagesController extends Controller
 {
@@ -23,8 +24,29 @@ class StaticPagesController extends Controller
 
     }
 
+    public function statusUpdate($id, StaticPage $page)
+    {
+        $page = $page->find($id);
+
+        $page->update([
+            'status' => $page->status == StaticPage::STATUS_ACTIVE ? StaticPage::STATUS_DISABLED : StaticPage::STATUS_ACTIVE,
+        ]);
+
+        Notifications::success(trans('users.notification.status-change-update'), 'top');
+
+        return redirect()->back();
+    }
+
     public function createPage()
     {
+        \Title::prepend(trans('dashboard.title.prepend'));
+        \Title::append(trans('static-pages::pages.create.title'));
+
+        if (view()->exists('packages.static-pages.admin.create-page')) {
+            return view('packages.static-pages.admin.create-page');
+        } else {
+            return view('staticPages::admin.create-page');
+        }
 
     }
 
@@ -48,6 +70,15 @@ class StaticPagesController extends Controller
             return view('staticPages::pages-view');
         }
 
+    }
+
+    public function destroy($id)
+    {
+        StaticPage::destroy($id);
+
+        Notifications::success(trans('users.notification.user-delete'), 'top');
+
+        return redirect()->back();
     }
 
 }
