@@ -26,11 +26,13 @@
                             @else
                                 <button type="submit" onclick="return buttonConfirmation(event, 'Activate?')"
                                         class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top"
-                                        title="{{ trans('users.tooltip.status') }}"><i class="fa fa-power-off"></i></button>
+                                        title="{{ trans('users.tooltip.status') }}"><i class="fa fa-power-off"></i>
+                                </button>
                             @endif
                         </form>
                         <form action="{{ route('admin-users-edit', ['id' => $page->id]) }}" method="GET">
-                            <button type="submit" class="btn btn-xs btn-warning" data-toggle="tooltip" data-placement="top"
+                            <button type="submit" class="btn btn-xs btn-warning" data-toggle="tooltip"
+                                    data-placement="top"
                                     title="{{ trans('users.tooltip.edit') }}"><i class="fa fa-pencil"></i>
                             </button>
                         </form>
@@ -39,7 +41,9 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" onclick="return buttonConfirmation(event, 'Delete?')"
-                                    class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="{{ trans('users.tooltip.delete') }}"><i class="fa fa-remove"></i></button>
+                                    class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top"
+                                    title="{{ trans('users.tooltip.delete') }}">
+                                <i class="fa fa-remove"></i></button>
                         </form>
                     </td>
                 </tr>

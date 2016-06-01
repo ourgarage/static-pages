@@ -32,7 +32,7 @@ class StaticPagesController extends Controller
             'status' => $page->status == StaticPage::STATUS_ACTIVE ? StaticPage::STATUS_DISABLED : StaticPage::STATUS_ACTIVE,
         ]);
 
-        Notifications::success(trans('users.notification.status-change-update'), 'top');
+        Notifications::success(trans('static-pages::pages.notifications.page-status-update'), 'top');
 
         return redirect()->back();
     }
@@ -76,7 +76,7 @@ class StaticPagesController extends Controller
     {
         StaticPage::destroy($id);
 
-        Notifications::success(trans('users.notification.user-delete'), 'top');
+        Notifications::success(trans('static-pages::pages.notifications.page-delete'), 'top');
 
         return redirect()->back();
     }

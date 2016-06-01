@@ -17,7 +17,14 @@ return [
     ],
 
     'create' => [
-        'title' => 'Create Page',
+        'title' => 'Creating a new page',
+    ],
+
+    'notifications' => [
+        'page-status-update' => 'Status of page has been successfully changed',
+        'page-created-success' => 'New page has been successfully created',
+        'page-delete' => 'Page has been successfully deleted',
+        'page-update' => 'Page has been successfully updated',
     ],
 
 ];

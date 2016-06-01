@@ -8,7 +8,7 @@
 
 @section('body')
 
-    <div class="users-create">
+    <div class="pages-create">
         <div class="register-box">
             @include('admin.basis.notifications-page')
         </div>

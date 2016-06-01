@@ -4,17 +4,17 @@
 
     {{ trans('static-pages::pages.index.title') }}
 
-    @if (view()->exists('packages.static-pages.admin.create-button'))
-        @include('packages.static-pages.admin.create-button')
-    @else
-        @include('staticPages::admin.create-button')
-    @endif
+    <form class="pull-right" action="{{ route('static-pages::admin::create-page') }}" method="GET">
+        <button class="btn btn-success">
+            <i class="fa fa-plus"></i> {{ trans('static-pages::pages.button.create') }}
+        </button>
+    </form>
 
 @endsection
 
 @section('body')
 
-    <div class="users-index">
+    <div class="pages-index">
 
         @if(view()->exists('packages.static-pages.admin.pages-table'))
             @include('packages.static-pages.admin.pages-table', ['pages', $pages])
