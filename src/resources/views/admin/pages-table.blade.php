@@ -30,7 +30,7 @@
                                 </button>
                             @endif
                         </form>
-                        <form action="{{ route('admin-users-edit', ['id' => $page->id]) }}" method="GET">
+                        <form action="{{ route('static-pages::admin::page-edit', ['id' => $page->id]) }}" method="GET">
                             <button type="submit" class="btn btn-xs btn-warning" data-toggle="tooltip"
                                     data-placement="top"
                                     title="{{ trans('users.tooltip.edit') }}"><i class="fa fa-pencil"></i>

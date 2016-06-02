@@ -14,10 +14,24 @@ return [
 
     'button' => [
         'create' => 'Create',
+        'update' => 'Update',
     ],
 
     'create' => [
         'title' => 'Creating a new page',
+        'form' => [
+            'title' => 'Title',
+            'content-head' => 'Content of page:',
+            'content' => 'Enter text here...',
+            'slug' => 'Short title',
+            'meta-keywords' => 'Meta keywords',
+            'meta-description' => 'Meta description',
+            'meta-title' => 'Meta title',
+        ],
+    ],
+
+    'edit' => [
+        'title' => 'Edit page',
     ],
 
     'notifications' => [

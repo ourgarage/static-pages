@@ -2,6 +2,7 @@
 
 namespace Ourgarage\StaticPages\Http\Controllers;
 
+use Ourgarage\StaticPages\Http\Requests\StaticPageCreateRequest;
 use App\Http\Controllers\Controller;
 use Ourgarage\StaticPages\Models\StaticPage;
 use Notifications;
@@ -48,6 +49,36 @@ class StaticPagesController extends Controller
             return view('staticPages::admin.create-page');
         }
 
+    }
+
+    public function store(StaticPageCreateRequest $errors, $id = null)
+    {
+        /*if (is_null($id)) {
+            StaticPage::create([
+                'name' => request('name'),
+                'email' => request('email'),
+                'password' => request('password'),
+            ]);
+
+            Notifications::success(trans('static-pages::pages.notifications.page-created-success'), 'top');
+        } else {
+            $user = User::find($id);
+
+            $user->name = request('name');
+            $user->email = request('email');
+
+            $user->save();
+
+            Notifications::success(trans('static-pages::pages.notifications.page-update'), 'top');
+        }*/
+
+        //return redirect()->route('static-pages::admin::index');
+        dd(request());
+    }
+
+    public function edit()
+    {
+        //edit
     }
 
     public function pageList()

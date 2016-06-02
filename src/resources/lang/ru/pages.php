@@ -14,17 +14,30 @@ return [
 
     'button' => [
         'create' => 'Создать',
+        'update' => 'Обновить',
     ],
 
     'create' => [
         'title' => 'Создание новой страницы',
+        'form' => [
+            'title' => 'Название',
+            'content-head' => 'Контент страницы:',
+            'slug' => 'Короткое название',
+            'meta-keywords' => 'Meta keywords',
+            'meta-description' => 'Meta description',
+            'meta-title' => 'Meta title',
+        ],
+    ],
+
+    'edit' => [
+        'title' => 'Правка страницы',
     ],
 
     'notifications' => [
-        'page-status-update' => 'Статус страницы успешно изменен',
-        'page-created-success' => 'Новая страница успешно создана',
-        'page-delete' => 'Страница успешно удалена',
-        'page-update' => 'Страница успешно сохранена',
-    ],
+    'page-status-update' => 'Статус страницы успешно изменен',
+    'page-created-success' => 'Новая страница успешно создана',
+    'page-delete' => 'Страница успешно удалена',
+    'page-update' => 'Страница успешно сохранена',
+],
 
 ];
