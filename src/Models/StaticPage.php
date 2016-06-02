@@ -12,6 +12,6 @@ class StaticPage extends Model
 
     protected $table = 'static_pages';
 
-    protected $fillable = ['status', 'title', 'text', 'slug', 'meta_keywords', 'meta_description', 'meta_title'];
+    protected $fillable = ['status', 'title', 'content', 'slug', 'meta_keywords', 'meta_description', 'meta_title'];
 
 }

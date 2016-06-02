@@ -17,6 +17,7 @@
             <form class="form-horizontal"
                   action="{{ route('static-pages::admin::page-store', ['id' => isset($page) ? $page->id : null]) }}"
                   method="POST">
+
                 {!! csrf_field() !!}
 
                 <div class="form-group has-feedback">
@@ -68,16 +69,12 @@
 
                 <div class="form-group has-feedback">
                     <div class="col-md-8">
-                        <textarea name="content" rows="10" class="form-control">
-                            @if(isset($page))
-                                {{ old('content', $page->content) }}
-                            @endif
-                        </textarea>
+                        <textarea name="content" rows="15" class="form-control">@if(isset($page)){{ old('content', $page->content) }}@endif</textarea>
                     </div>
                 </div>
 
                 <button type="submit"
-                        class="btn btn-primary btn-flat">{{ isset($admin) ? trans('static-pages::pages.button.update') : trans('static-pages::pages.button.create') }}</button>
+                        class="btn btn-primary btn-flat">{{ isset($page) ? trans('static-pages::pages.button.update') : trans('static-pages::pages.button.create') }}</button>
             </form>
 
         </div>

@@ -22,7 +22,6 @@ class StaticPagesController extends Controller
         } else {
             return view('staticPages::admin.index', ['pages' => $pages]);
         }
-
     }
 
     public function statusUpdate($id, StaticPage $page)
@@ -48,59 +47,70 @@ class StaticPagesController extends Controller
         } else {
             return view('staticPages::admin.create-page');
         }
-
     }
 
     public function store(StaticPageCreateRequest $errors, $id = null)
     {
-        /*if (is_null($id)) {
+        if (is_null($id)) {
             StaticPage::create([
-                'name' => request('name'),
-                'email' => request('email'),
-                'password' => request('password'),
+                'status' => StaticPage::STATUS_ACTIVE,
+                'title' => request('title'),
+                'content' => request('content'),
+                'slug' => request('slug'),
+                'meta_keywords' => request('meta_keywords'),
+                'meta_description' => request('meta_description'),
+                'meta_title' => request('meta_title'),
             ]);
 
             Notifications::success(trans('static-pages::pages.notifications.page-created-success'), 'top');
         } else {
-            $user = User::find($id);
+            $page = StaticPage::find($id);
 
-            $user->name = request('name');
-            $user->email = request('email');
+            $page->title = request('title');
+            $page->content = request('content');
+            $page->slug = request('slug');
+            $page->meta_keywords = request('meta_keywords');
+            $page->meta_description = request('meta_description');
+            $page->meta_title = request('meta_title');
 
-            $user->save();
+            $page->save();
 
             Notifications::success(trans('static-pages::pages.notifications.page-update'), 'top');
-        }*/
+        }
 
-        //return redirect()->route('static-pages::admin::index');
-        dd(request());
+        return redirect()->route('static-pages::admin::index');
     }
 
-    public function edit()
+    public function edit($id, StaticPage $page)
     {
-        //edit
+        $page = $page->find($id);
+
+        \Title::prepend(trans('dashboard.title.prepend'));
+        \Title::append(trans('static-pages::pages.edit.title'));
+
+        if (view()->exists('packages.static-pages.admin.create-page')) {
+            return view('packages.static-pages.admin.create-page', ['page' => $page]);
+        } else {
+            return view('staticPages::admin.create-page', ['page' => $page]);
+        }
     }
 
     public function pageList()
     {
-
         if (view()->exists('packages.static-pages.pages-list')) {
             return view('packages.static-pages.pages-list');
         } else {
             return view('staticPages::pages-list');
         }
-
     }
 
     public function pageView()
     {
-
         if (view()->exists('packages.static-pages.pages-view')) {
             return view('packages.static-pages.pages-view');
         } else {
             return view('staticPages::pages-view');
         }
-
     }
 
     public function destroy($id)
@@ -111,5 +121,4 @@ class StaticPagesController extends Controller
 
         return redirect()->back();
     }
-
 }
