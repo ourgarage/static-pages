@@ -4,6 +4,7 @@
             <thead>
             <tr>
                 <th>Id</th>
+                <th>{{ trans('static-pages::pages.table.slug') }}</th>
                 <th>{{ trans('static-pages::pages.table.title') }}</th>
                 <th>{{ trans('static-pages::pages.table.created') }}</th>
                 <th>{{ trans('static-pages::pages.table.options') }}</th>
@@ -13,6 +14,7 @@
             @foreach($pages as $page)
                 <tr>
                     <th>{{ $page->id }}</th>
+                    <td><a href="/pages/{{ $page->slug }}" target="_blank">{{ $page->slug }}</a></td>
                     <td>{{ $page->title }}</td>
                     <td>{{ df($page->created_at) }}</td>
                     <td class="for-form-inline">

@@ -9,6 +9,7 @@ return [
 
     'table' => [
         'title' => 'Заголовок',
+        'slug' => 'Slug',
         'created' => 'Дата создания',
         'options' => 'Опции',
     ],

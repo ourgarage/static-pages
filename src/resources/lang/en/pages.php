@@ -9,6 +9,7 @@ return [
 
     'table' => [
         'title' => 'Title',
+        'slug' => 'Slug',
         'created' => 'Date created',
         'options' => 'Options',
     ],
