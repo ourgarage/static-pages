@@ -54,7 +54,7 @@
     </div>
 @else
     <div class="no-results text-center">
-        <i class="fa fa-filter fa-3x"></i>
-        <p>{{ trans('users.search.no-results') }}</p>
+        <i class="fa fa-exclamation-triangle fa-3x"></i>
+        <p>{{ trans('static-pages::pages.index.no-pages') }}</p>
     </div>
 @endif

@@ -4,6 +4,7 @@ return [
 
     'index' => [
         'title' => 'Static Pages',
+        'no-pages' => 'You have no pages',
     ],
 
     'table' => [
