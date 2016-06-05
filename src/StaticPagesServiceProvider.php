@@ -16,13 +16,15 @@ class StaticPagesServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'static-pages');
 
         $this->publishes([
-            __DIR__.'/resources/views' => base_path('resources/views/packages/static-pages'),
+            __DIR__.'/resources/views/site' => base_path('resources/views/packages/static-pages'),
         ]);
     }
 
     public function register()
     {
         $this->app->make('Ourgarage\StaticPages\Http\Controllers\StaticPagesController');
+
+        $this->app->make('Ourgarage\StaticPages\Http\Controllers\Admin\StaticPagesController');
 
         $this->mergeConfigFrom(__DIR__.'/config/static-pages.php', 'packages');
     }
