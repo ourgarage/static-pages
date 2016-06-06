@@ -18,6 +18,10 @@ class StaticPagesServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/views/site' => base_path('resources/views/packages/static-pages'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/resources/assets' => public_path('packages/static-pages'),
+        ]);
     }
 
     public function register()

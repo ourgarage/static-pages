@@ -1,5 +1,9 @@
 @extends('admin.main')
 
+@section('css')
+    @include('staticPages::basis.css')
+@endsection
+
 @section('body-title')
 
     {{ isset($page) ? trans('static-pages::pages.edit.title') : trans('static-pages::pages.create.title') }}
@@ -69,7 +73,8 @@
 
                 <div class="form-group has-feedback">
                     <div class="col-md-8">
-                        <textarea name="content" rows="15" class="form-control">@if(isset($page)){{ old('content', $page->content) }}@endif</textarea>
+                        <textarea id="content" name="content" rows="15"
+                                  class="form-control">@if(isset($page)){{ old('content', $page->content) }}@endif</textarea>
                     </div>
                 </div>
 
@@ -80,4 +85,8 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+    @include('staticPages::basis.ckeditor')
 @endsection
