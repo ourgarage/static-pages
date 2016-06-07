@@ -29,9 +29,6 @@ class StaticPageCreateRequest extends Request
             'title' => 'required|unique:static_pages',
             'content' => 'required|unique:static_pages',
             'slug' => 'required|unique:static_pages',
-            'meta_keywords' => '',
-            'meta_description' => '',
-            'meta_title' => '',
         ];
 
         return $rules;
