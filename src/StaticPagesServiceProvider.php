@@ -26,7 +26,7 @@ class StaticPagesServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->make('Ourgarage\StaticPages\Http\Controllers\StaticPagesController');
+        $this->app->make('Ourgarage\StaticPages\Http\Controllers\StaticPagesUserController');
 
         $this->app->make('Ourgarage\StaticPages\Http\Controllers\Admin\StaticPagesController');
 

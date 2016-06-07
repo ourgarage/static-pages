@@ -2,6 +2,6 @@
 
 <script>
     CKEDITOR.replace('content', {
-        filebrowserUploadUrl: '/uploader'
+        filebrowserImageUploadUrl: '/uploader'
     });
 </script>

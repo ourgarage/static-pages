@@ -2,11 +2,10 @@
 
 namespace Ourgarage\StaticPages\Http\Controllers;
 
-use Ourgarage\StaticPages\Http\Requests\StaticPageCreateRequest;
 use App\Http\Controllers\Controller;
 use Ourgarage\StaticPages\Models\StaticPage;
 
-class StaticPagesController extends Controller
+class StaticPagesUserController extends Controller
 {
 
     public function pageList()
