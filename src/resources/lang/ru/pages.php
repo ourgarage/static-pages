@@ -33,6 +33,8 @@ return [
 
     'edit' => [
         'title' => 'Правка страницы',
+        'activate' => 'Активировать?',
+        'deactivate' => 'Деактивировать?',
     ],
 
     'notifications' => [

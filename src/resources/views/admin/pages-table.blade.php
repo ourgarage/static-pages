@@ -22,11 +22,13 @@
                               method="POST">
                             {{ csrf_field() }}
                             @if($page->status == \Ourgarage\StaticPages\Models\StaticPage::STATUS_ACTIVE)
-                                <button type="submit" onclick="return buttonConfirmation(event, 'Deactivate?')"
+                                <button type="submit"
+                                        onclick="return buttonConfirmation(event, '@lang('static-pages::pages.edit.deactivate')')"
                                         class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top"
                                         title="{{ trans('users.tooltip.status') }}"><i class="fa fa-check"></i></button>
                             @else
-                                <button type="submit" onclick="return buttonConfirmation(event, 'Activate?')"
+                                <button type="submit"
+                                        onclick="return buttonConfirmation(event, '@lang('static-pages::pages.edit.activate')')"
                                         class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top"
                                         title="{{ trans('users.tooltip.status') }}"><i class="fa fa-power-off"></i>
                                 </button>
