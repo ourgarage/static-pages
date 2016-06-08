@@ -25,11 +25,19 @@ class StaticPageCreateRequest extends Request
      */
     public function rules()
     {
-        $rules = [
-            'title' => 'required|unique:static_pages',
-            'content' => 'required|unique:static_pages',
-            'slug' => 'required|unique:static_pages',
-        ];
+        if(is_null($this->route('id'))){
+            $rules = [
+                'title' => 'required|unique:static_pages',
+                'content' => 'required|unique:static_pages',
+                'slug' => 'required|unique:static_pages',
+            ];
+        } else {
+            $rules = [
+                'title' => 'required|unique:static_pages,title,'.$this->route('id'),
+                'content' => 'required|unique:static_pages,content,'.$this->route('id'),
+                'slug' => 'required|unique:static_pages,slug,'.$this->route('id'),
+            ];
+        }
 
         return $rules;
     }
