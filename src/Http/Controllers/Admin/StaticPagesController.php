@@ -38,7 +38,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.create.title'));
 
-        return view('staticPages::admin.create-page');
+        return view('staticPages::admin.page');
     }
 
     public function store(StaticPageCreateRequest $request, $id = null)
@@ -52,13 +52,13 @@ class StaticPagesController extends Controller
         $page->meta_description = $request->meta_description;
         $page->meta_title = $request->meta_title;
 
-        if ($page->id == null) {
-            Notifications::success(trans('static-pages::pages.notifications.page-created-success'), 'top');
-        } else {
-            Notifications::success(trans('static-pages::pages.notifications.page-update'), 'top');
-        }
-        
+        $translationKey = (is_null($page->id))
+            ? 'static-pages::pages.notifications.page-created-success'
+            : 'static-pages::pages.notifications.page-update' ;
+
         $page->save();
+
+        Notifications::success(trans($translationKey), 'top');
 
         return redirect()->route('static-pages::admin::index');
     }
@@ -70,7 +70,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.edit.title'));
 
-        return view('staticPages::admin.create-page', ['page' => $page]);
+        return view('staticPages::admin.page', ['page' => $page]);
     }
 
     public function destroy($id)

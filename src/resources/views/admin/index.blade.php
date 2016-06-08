@@ -17,13 +17,7 @@
 @section('body')
 
     <div class="pages-index">
-
-        @if(view()->exists('packages.static-pages.admin.pages-table'))
-            @include('packages.static-pages.admin.pages-table', ['pages', $pages])
-        @else
-            @include('staticPages::admin.pages-table', ['pages', $pages])
-        @endif
-
+        @include('staticPages::admin.pages-table', compact('pages'))
     </div>
 
 @endsection
