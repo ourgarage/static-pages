@@ -28,7 +28,7 @@
                     <div class="col-md-8">
                         <input type="text" name="title" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.title') }}"
-                               @if(isset($page)) value="{{ old('title', $page->title) }}" @endif>
+                               value="{{ isset($page) ? old('title', $page->title) : '' }}">
                         <span class="glyphicon glyphicon-header form-control-feedback"></span>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="col-md-8">
                         <input type="text" name="slug" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.slug') }}"
-                               @if(isset($page)) value="{{ old('slug', $page->slug) }}" @endif>
+                               value="{{ isset($page) ? old('slug', $page->slug) : '' }}">
                         <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="col-md-8">
                         <input type="text" name="meta_keywords" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.meta-keywords') }}"
-                               @if(isset($page)) value="{{ old('meta_keywords', $page->meta_keywords) }}" @endif>
+                               value="{{ isset($page) ? old('meta_keywords', $page->meta_keywords) : '' }}">
                         <span class="glyphicon glyphicon-tags form-control-feedback"></span>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                     <div class="col-md-8">
                         <input type="text" name="meta_description" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.meta-description') }}"
-                               @if(isset($page)) value="{{ old('meta_description', $page->meta_description) }}" @endif>
+                               value="{{ isset($page) ? old('meta_description', $page->meta_description) : '' }}">
                         <span class="glyphicon glyphicon-tags form-control-feedback"></span>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                     <div class="col-md-8">
                         <input type="text" name="meta_title" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.meta-title') }}"
-                               @if(isset($page)) value="{{ old('meta_title', $page->meta_title) }}" @endif>
+                               value="{{ isset($page) ? old('meta_title', $page->meta_title) : '' }}">
                         <span class="glyphicon glyphicon-tag form-control-feedback"></span>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="form-group has-feedback">
                     <div class="col-md-8">
                         <textarea id="content" name="content" rows="15"
-                                  class="form-control">@if(isset($page)){{ old('content', $page->content) }}@endif</textarea>
+                                  class="form-control">{{ isset($page) ? old('content', $page->content) : ''}}</textarea>
                     </div>
                 </div>
 

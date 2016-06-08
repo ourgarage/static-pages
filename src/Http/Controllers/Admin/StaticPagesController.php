@@ -17,11 +17,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.index.title'));
 
-        if (view()->exists('packages.static-pages.admin.index')) {
-            return view('packages.static-pages.admin.index', ['pages' => $pages]);
-        } else {
-            return view('staticPages::admin.index', ['pages' => $pages]);
-        }
+        return view('staticPages::admin.index', ['pages' => $pages]);
     }
 
     public function statusUpdate($id, StaticPage $page)
@@ -42,11 +38,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.create.title'));
 
-        if (view()->exists('packages.static-pages.admin.create-page')) {
-            return view('packages.static-pages.admin.create-page');
-        } else {
-            return view('staticPages::admin.create-page');
-        }
+        return view('staticPages::admin.create-page');
     }
 
     public function store(StaticPageCreateRequest $errors, $id = null)
@@ -88,11 +80,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.edit.title'));
 
-        if (view()->exists('packages.static-pages.admin.create-page')) {
-            return view('packages.static-pages.admin.create-page', ['page' => $page]);
-        } else {
-            return view('staticPages::admin.create-page', ['page' => $page]);
-        }
+        return view('staticPages::admin.create-page', ['page' => $page]);
     }
 
     public function destroy($id)
