@@ -34,8 +34,9 @@ return [
 
     'edit' => [
         'title' => 'Edit page',
-        'activate' => 'Activate?',
-        'deactivate' => 'Deactivate?',
+        'activate' => 'Do you want to activate this page?',
+        'deactivate' => 'Do you want to deactivate this page?',
+        'delete' => 'Do you want to delete this page?',
     ],
 
     'notifications' => [

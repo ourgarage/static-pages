@@ -45,7 +45,7 @@
                               method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button type="submit" onclick="return buttonConfirmation(event, 'Delete?')"
+                            <button type="submit" onclick="return buttonConfirmation(event, '@lang('static-pages::pages.edit.delete')')"
                                     class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top"
                                     title="{{ trans('users.tooltip.delete') }}">
                                 <i class="fa fa-remove"></i></button>
