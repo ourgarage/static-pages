@@ -8,11 +8,9 @@
 
     {{ trans('static-pages::pages.index.title') }}
 
-    <form class="pull-right" action="{{ route('static-pages::admin::create-page') }}" method="GET">
-        <button class="btn btn-success">
-            <i class="fa fa-plus"></i> {{ trans('static-pages::pages.button.create') }}
-        </button>
-    </form>
+    <a href="{{ route('static-pages::admin::create-page') }}" class="pull-right btn btn-success">
+        <i class="fa fa-plus"></i> {{ trans('static-pages::pages.button.create') }}
+    </a>
 
 @endsection
 
