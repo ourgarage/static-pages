@@ -19,8 +19,12 @@
         <div class="login-box-body">
 
             <form class="form-horizontal"
-                  action="{{ route('static-pages::admin::page-store', ['id' => isset($page) ? $page->id : null]) }}"
+                  action="{{ isset($page) ? route('static-pages::admin::page-update', ['id' => $page->id]) : route('static-pages::admin::page-store') }}"
                   method="POST">
+
+                @if(isset($page))
+                    {{ method_field('PUT') }}
+                @endif
 
                 {!! csrf_field() !!}
 

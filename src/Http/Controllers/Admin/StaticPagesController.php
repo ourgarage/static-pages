@@ -43,32 +43,22 @@ class StaticPagesController extends Controller
 
     public function store(StaticPageCreateRequest $request, $id = null)
     {
-        if (is_null($id)) {
-            StaticPage::create([
-                'status' => StaticPage::STATUS_ACTIVE,
-                'title' => request('title'),
-                'content' => request('content'),
-                'slug' => request('slug'),
-                'meta_keywords' => request('meta_keywords'),
-                'meta_description' => request('meta_description'),
-                'meta_title' => request('meta_title'),
-            ]);
+        $page = StaticPage::findOrNew($id);
 
+        $page->title = $request->title;
+        $page->content = $request->content;
+        $page->slug = $request->slug;
+        $page->meta_keywords = $request->meta_keywords;
+        $page->meta_description = $request->meta_description;
+        $page->meta_title = $request->meta_title;
+
+        if ($page->id == null) {
             Notifications::success(trans('static-pages::pages.notifications.page-created-success'), 'top');
         } else {
-            $page = StaticPage::find($id);
-
-            $page->title = request('title');
-            $page->content = request('content');
-            $page->slug = request('slug');
-            $page->meta_keywords = request('meta_keywords');
-            $page->meta_description = request('meta_description');
-            $page->meta_title = request('meta_title');
-
-            $page->save();
-
             Notifications::success(trans('static-pages::pages.notifications.page-update'), 'top');
         }
+        
+        $page->save();
 
         return redirect()->route('static-pages::admin::index');
     }

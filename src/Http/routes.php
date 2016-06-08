@@ -8,7 +8,8 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/create', 'StaticPagesController@create')->name('static-pages::admin::create-page');
         Route::post('/status-update/{id}', 'StaticPagesController@statusUpdate')->name('static-pages::admin::status-update');
         Route::delete('/delete/{id}', 'StaticPagesController@destroy')->name('static-pages::admin::page-delete');
-        Route::post('/store/{id?}', 'StaticPagesController@store')->name('static-pages::admin::page-store');
+        Route::post('/store', 'StaticPagesController@store')->name('static-pages::admin::page-store');
+        Route::put('/store/{id}', 'StaticPagesController@store')->name('static-pages::admin::page-update');
         Route::get('/edit/{id}', 'StaticPagesController@edit')->name('static-pages::admin::page-edit');
 
     });
