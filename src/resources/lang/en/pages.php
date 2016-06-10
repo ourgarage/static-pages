@@ -46,4 +46,9 @@ return [
         'page-update' => 'Page has been successfully updated',
     ],
 
+    'view' => [
+        'header' => 'List of pages',
+        'no-pages' => 'No pages',
+    ],
+
 ];

@@ -1,7 +1,7 @@
 @extends('admin.main')
 
 @section('css')
-    @include('staticPages::basis.css')
+    @include('static-pages::basis.css')
 @endsection
 
 @section('body-title')
@@ -17,7 +17,7 @@
 @section('body')
 
     <div class="pages-index">
-        @include('staticPages::admin.pages-table', compact('pages'))
+        @include('static-pages::admin.pages-table', compact('pages'))
     </div>
 
 @endsection

@@ -17,7 +17,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.index.title'));
 
-        return view('staticPages::admin.index', ['pages' => $pages]);
+        return view('static-pages::admin.index', ['pages' => $pages]);
     }
 
     public function statusUpdate($id, StaticPage $page)
@@ -38,7 +38,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.create.title'));
 
-        return view('staticPages::admin.page');
+        return view('static-pages::admin.page');
     }
 
     public function store(StaticPageCreateRequest $request, $id = null)
@@ -70,7 +70,7 @@ class StaticPagesController extends Controller
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.edit.title'));
 
-        return view('staticPages::admin.page', ['page' => $page]);
+        return view('static-pages::admin.page', ['page' => $page]);
     }
 
     public function destroy($id)

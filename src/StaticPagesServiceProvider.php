@@ -11,12 +11,12 @@ class StaticPagesServiceProvider extends ServiceProvider
     {
         require __DIR__ . '/Http/routes.php';
 
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'staticPages');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'static-pages');
 
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'static-pages');
 
         $this->publishes([
-            __DIR__.'/resources/views/site' => base_path('resources/views/packages/static-pages'),
+            __DIR__.'/resources/views/site' => base_path('resources/views/vendor/static-pages/site'),
         ]);
 
         $this->publishes([
