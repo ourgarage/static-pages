@@ -10,14 +10,14 @@ class StaticPagesUserController extends Controller
 
     public function pageList(StaticPage $staticPages)
     {
-        $pages = $staticPages->where('status', $staticPages::STATUS_ACTIVE)->orderBy('updated_at', 'desc')->get();
+        $pages = $staticPages->where('status', StaticPage::STATUS_ACTIVE)->orderBy('updated_at', 'desc')->get();
 
         return view('static-pages::site.pages-list', compact('pages'));
     }
 
     public function pageView(StaticPage $staticPages, $slug)
     {
-        $page = $staticPages->where('status', $staticPages::STATUS_ACTIVE)->where('slug', $slug)->get()->first();
+        $page = $staticPages->where('status', StaticPage::STATUS_ACTIVE)->where('slug', $slug)->first();
 
         if (is_null($page)) {
             return abort('404');
