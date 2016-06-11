@@ -1,7 +1,7 @@
 @extends('admin.main')
 
 @section('css')
-    @include('staticPages::basis.css')
+    @include('static-pages::basis.css')
 @endsection
 
 @section('body-title')
@@ -92,5 +92,5 @@
 @endsection
 
 @section('js')
-    @include('staticPages::basis.ckeditor')
+    @include('static-pages::basis.ckeditor')
 @endsection

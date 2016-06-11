@@ -8,21 +8,21 @@ use Ourgarage\StaticPages\Models\StaticPage;
 class StaticPagesUserController extends Controller
 {
 
-    public function pageList()
+    public function pageList(StaticPage $staticPages)
     {
-        if (view()->exists('packages.static-pages.pages-list')) {
-            return view('packages.static-pages.pages-list');
-        } else {
-            return view('staticPages::site.pages-list');
-        }
+        $pages = $staticPages->where('status', StaticPage::STATUS_ACTIVE)->orderBy('updated_at', 'desc')->get();
+
+        return view('static-pages::site.pages-list', compact('pages'));
     }
 
-    public function pageView()
+    public function pageView(StaticPage $staticPages, $slug)
     {
-        if (view()->exists('packages.static-pages.pages-view')) {
-            return view('packages.static-pages.pages-view');
-        } else {
-            return view('staticPages::site.pages-view');
+        $page = $staticPages->where('status', StaticPage::STATUS_ACTIVE)->where('slug', $slug)->first();
+
+        if (is_null($page)) {
+            return abort('404');
         }
+
+        return view('static-pages::site.pages-view', compact('page'));
     }
 }
