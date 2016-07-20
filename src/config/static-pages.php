@@ -7,5 +7,13 @@ return [
         'caption' => 'Static Pages',
         'icon' => 'fa fa-file-text-o',
         'active' => 'static-pages::admin::index',
+
+        'settings' => [
+            'url' => '#',
+            'caption' => 'Static pages settings',
+            'icon' => 'fa fa-cog',
+            'active' => '#',
+        ],
     ],
+
 ];
