@@ -12,6 +12,9 @@ Route::group(['middleware' => 'web'], function () {
         Route::put('/store/{id}', 'StaticPagesController@store')->name('static-pages::admin::page-update');
         Route::get('/edit/{id}', 'StaticPagesController@edit')->name('static-pages::admin::page-edit');
 
+        Route::get('/settings', 'StaticPagesSettingsController@getSettings')->name('static-pages::admin::get-settings');
+        Route::post('/settings', 'StaticPagesSettingsController@postSettings')->name('static-pages::admin::post-settings');
+
     });
 
     Route::group(['prefix' => 'pages', 'namespace' => 'Ourgarage\StaticPages\Http\Controllers'], function () {

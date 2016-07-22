@@ -50,7 +50,9 @@
                     <div class="col-md-8">
                         <input type="text" name="meta_keywords" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.meta-keywords') }}"
-                               value="{{ isset($page) ? old('meta_keywords', $page->meta_keywords) : '' }}">
+                               value="{{ isset($page) ? old('meta_keywords', $page->meta_keywords) :
+                                conf('settings.static-pages.meta-keywords',
+                                config('packages.static-pages.default-settings.meta-keywords')) }}">
                         <span class="glyphicon glyphicon-tags form-control-feedback"></span>
                     </div>
                 </div>
@@ -59,7 +61,9 @@
                     <div class="col-md-8">
                         <input type="text" name="meta_description" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.meta-description') }}"
-                               value="{{ isset($page) ? old('meta_description', $page->meta_description) : '' }}">
+                               value="{{ isset($page) ? old('meta_description', $page->meta_description) :
+                                conf('settings.static-pages.meta-description',
+                                config('packages.static-pages.default-settings.meta-description')) }}">
                         <span class="glyphicon glyphicon-tags form-control-feedback"></span>
                     </div>
                 </div>
@@ -68,7 +72,9 @@
                     <div class="col-md-8">
                         <input type="text" name="meta_title" class="form-control"
                                placeholder="{{ trans('static-pages::pages.create.form.meta-title') }}"
-                               value="{{ isset($page) ? old('meta_title', $page->meta_title) : '' }}">
+                               value="{{ isset($page) ? old('meta_title', $page->meta_title) :
+                                conf('settings.static-pages.meta-title',
+                                config('packages.static-pages.default-settings.meta-title')) }}">
                         <span class="glyphicon glyphicon-tag form-control-feedback"></span>
                     </div>
                 </div>

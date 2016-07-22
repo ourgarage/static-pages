@@ -2,9 +2,9 @@
 
 namespace Ourgarage\StaticPages\Http\Controllers\Admin;
 
-use Ourgarage\StaticPages\Http\Requests\StaticPageCreateRequest;
 use App\Http\Controllers\Controller;
 use Ourgarage\StaticPages\Models\StaticPage;
+use Ourgarage\StaticPages\Http\Requests\StaticPageCreateRequest;
 use Notifications;
 
 class StaticPagesController extends Controller
