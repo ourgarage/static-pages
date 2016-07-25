@@ -17,6 +17,7 @@ return [
     'button' => [
         'create' => 'Create',
         'update' => 'Update',
+        'save' => 'Save',
     ],
 
     'create' => [
@@ -25,7 +26,7 @@ return [
             'title' => 'Title',
             'content-head' => 'Content of page:',
             'content' => 'Enter text here...',
-            'slug' => 'Short title',
+            'slug' => 'URL',
             'meta-keywords' => 'Meta keywords',
             'meta-description' => 'Meta description',
             'meta-title' => 'Meta title',
@@ -44,11 +45,16 @@ return [
         'page-created-success' => 'New page has been successfully created',
         'page-delete' => 'Page has been successfully deleted',
         'page-update' => 'Page has been successfully updated',
+        'settings-save' => 'Settings has been successfully saved',
     ],
 
     'view' => [
         'header' => 'List of pages',
         'no-pages' => 'No pages',
+    ],
+
+    'settings' => [
+        'title' => 'Settings of static pages',
     ],
 
 ];

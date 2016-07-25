@@ -17,6 +17,7 @@ return [
     'button' => [
         'create' => 'Создать',
         'update' => 'Обновить',
+        'save' => 'Сохранить',
     ],
 
     'create' => [
@@ -24,7 +25,7 @@ return [
         'form' => [
             'title' => 'Название',
             'content-head' => 'Контент страницы:',
-            'slug' => 'Короткое название',
+            'slug' => 'URL',
             'meta-keywords' => 'Meta keywords',
             'meta-description' => 'Meta description',
             'meta-title' => 'Meta title',
@@ -43,11 +44,16 @@ return [
         'page-created-success' => 'Новая страница успешно создана',
         'page-delete' => 'Страница успешно удалена',
         'page-update' => 'Страница успешно сохранена',
+        'settings-save' => 'Настройки успешно сохранены',
     ],
 
     'view' => [
         'header' => 'Список страниц',
         'no-pages' => 'Нет ни одной страницы',
+    ],
+
+    'settings' => [
+        'title' => 'Настройки статических страниц',
     ],
 
 ];

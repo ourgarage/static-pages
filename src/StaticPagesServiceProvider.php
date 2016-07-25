@@ -30,6 +30,8 @@ class StaticPagesServiceProvider extends ServiceProvider
 
         $this->app->make('Ourgarage\StaticPages\Http\Controllers\Admin\StaticPagesController');
 
+        $this->app->make('Ourgarage\StaticPages\Http\Controllers\Admin\StaticPagesSettingsController');
+
         $this->mergeConfigFrom(__DIR__.'/config/static-pages.php', 'packages');
     }
 
