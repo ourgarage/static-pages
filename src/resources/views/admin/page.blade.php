@@ -2,6 +2,9 @@
 
 @section('css')
     @include('static-pages::basis.css')
+
+    <link href="/libs/trumbowyg/dist/ui/trumbowyg.min.css" rel="stylesheet" type='text/css'>
+    <link href="/libs/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.min.css" rel="stylesheet" type='text/css'>
 @endsection
 
 @section('body-title')
@@ -98,5 +101,9 @@
 @endsection
 
 @section('js')
-    @include('static-pages::basis.ckeditor')
+
+    @inject('connect', 'App\Http\ViewConnectors\EditorConnector')
+
+    {!! $connect->connect('#content', App::getLocale(), route('contacts::admin::imageUpload'), 'full') !!}
+
 @endsection
