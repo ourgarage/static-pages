@@ -2,11 +2,11 @@
 
 namespace Ourgarage\StaticPages\Http\Requests;
 
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Notifications;
-use App\Http\Requests\Request;
 
-class StaticPageCreateRequest extends Request
+class StaticPageCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -54,7 +54,7 @@ class StaticPageCreateRequest extends Request
     }
 
 
-    public function formatErrors(Validator $validator)
+    protected function formatErrors(Validator $validator)
     {
         foreach ($validator->errors()->all() as $error) {
             Notifications::danger($error, 'page');
