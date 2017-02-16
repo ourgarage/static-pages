@@ -3,36 +3,48 @@
 namespace Ourgarage\StaticPages\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Ourgarage\StaticPages\Models\StaticPage;
+use Ourgarage\StaticPages\Presenters\Admin\StaticPagePresenter;
 use Ourgarage\StaticPages\Http\Requests\StaticPageCreateRequest;
+use Ourgarage\StaticPages\DTO\StaticPageDTO;
 use Notifications;
 
 class StaticPagesController extends Controller
 {
-
-    public function index(StaticPage $staticPages)
+    /**
+     * Index page of static-pages
+     *
+     * @param StaticPagePresenter $presenter
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(StaticPagePresenter $presenter)
     {
-        $pages = $staticPages->orderBy('updated_at', 'desc')->paginate(20);
-
+        $pages = $presenter->getAllStaticPages();
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.index.title'));
 
         return view('static-pages::admin.index', compact('pages'));
     }
-
-    public function statusUpdate($id, StaticPage $page)
+    
+    /**
+     * Update status of page
+     *
+     * @param StaticPagePresenter $presenter
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function statusUpdate(StaticPagePresenter $presenter, $id)
     {
-        $page = $page->find($id);
-
-        $page->update([
-            'status' => $page->status == StaticPage::STATUS_ACTIVE ? StaticPage::STATUS_DISABLED : StaticPage::STATUS_ACTIVE,
-        ]);
-
+        $presenter->statusUpdate($id);
         Notifications::success(trans('static-pages::pages.notifications.page-status-update'), 'top');
 
         return redirect()->back();
     }
-
+    
+    /**
+     * Get form for create new page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         \Title::prepend(trans('dashboard.title.prepend'));
