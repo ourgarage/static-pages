@@ -116,9 +116,7 @@
 @endsection
 
 @section('js')
-
     @inject('connect', 'App\Http\ViewConnectors\EditorConnector')
 
     {!! $connect->connect('#content', App::getLocale(), route('contacts::admin::imageUpload'), 'full') !!}
-
 @endsection
