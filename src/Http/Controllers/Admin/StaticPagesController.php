@@ -3,10 +3,10 @@
 namespace Ourgarage\StaticPages\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Ourgarage\StaticPages\Presenters\Admin\StaticPagePresenter;
-use Ourgarage\StaticPages\Http\Requests\StaticPageCreateRequest;
-use Ourgarage\StaticPages\DTO\StaticPageDTO;
 use Notifications;
+use Ourgarage\StaticPages\DTO\StaticPageDTO;
+use Ourgarage\StaticPages\Http\Requests\StaticPageCreateRequest;
+use Ourgarage\StaticPages\Presenters\Admin\StaticPagePresenter;
 
 class StaticPagesController extends Controller
 {
@@ -21,7 +21,7 @@ class StaticPagesController extends Controller
         $pages = $presenter->getAllStaticPages();
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.index.title'));
-
+        
         return view('static-pages::admin.index', compact('pages'));
     }
     
@@ -36,7 +36,7 @@ class StaticPagesController extends Controller
     {
         $presenter->statusUpdate($id);
         Notifications::success(trans('static-pages::pages.notifications.page-status-update'), 'top');
-
+        
         return redirect()->back();
     }
     
@@ -49,48 +49,66 @@ class StaticPagesController extends Controller
     {
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.create.title'));
-
+        
         return view('static-pages::admin.page');
     }
-
-    public function store(StaticPageCreateRequest $request, $id = null)
+    
+    /**
+     * Create or update static pages
+     *
+     * @param StaticPageCreateRequest $request
+     * @param StaticPagePresenter $presenter
+     * @param int|null $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(StaticPageCreateRequest $request, StaticPagePresenter $presenter, $id = null)
     {
-        $page = StaticPage::findOrNew($id);
-
-        $page->title = $request->title;
-        $page->content = $request->content;
-        $page->slug = $request->slug;
-        $page->meta_keywords = $request->meta_keywords;
-        $page->meta_description = $request->meta_description;
-        $page->meta_title = $request->meta_title;
-
-        $translationKey = (is_null($page->id))
+        $dto = new StaticPageDTO();
+        $dto->setId($id);
+        $dto->setTitle($request->title);
+        $dto->setContent($request->content);
+        $dto->setSlug($request->slug);
+        $dto->setMetaKeywords($request->meta_keywords);
+        $dto->setMetaDescription($request->meta_description);
+        $dto->setMetaTitle($request->meta_title);
+        
+        $presenter->createOrUpdateStaticPage($dto);
+        $translationKey = (is_null($id))
             ? 'static-pages::pages.notifications.page-created-success'
-            : 'static-pages::pages.notifications.page-update' ;
-
-        $page->save();
-
+            : 'static-pages::pages.notifications.page-update';
         Notifications::success(trans($translationKey), 'top');
-
+        
         return redirect()->route('static-pages::admin::index');
     }
-
-    public function edit($id, StaticPage $page)
+    
+    /**
+     * Get static page by id
+     *
+     * @param StaticPagePresenter $presenter
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(StaticPagePresenter $presenter, $id)
     {
-        $page = $page->find($id);
-
+        $page = $presenter->getStaticPageById($id);
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('static-pages::pages.edit.title'));
-
+        
         return view('static-pages::admin.page', compact('page'));
     }
-
-    public function destroy($id)
+    
+    /**
+     * Delete static page
+     *
+     * @param StaticPagePresenter $presenter
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(StaticPagePresenter $presenter, $id)
     {
-        StaticPage::destroy($id);
-
+        $presenter->deleteStaticPage($id);
         Notifications::success(trans('static-pages::pages.notifications.page-delete'), 'top');
-
+        
         return redirect()->back();
     }
 }
