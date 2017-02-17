@@ -18,6 +18,7 @@ return [
         'create' => 'Create',
         'update' => 'Update',
         'save' => 'Save',
+        'back' => 'Back'
     ],
 
     'create' => [

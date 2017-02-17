@@ -9,7 +9,7 @@ class StaticPagesServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        require __DIR__ . '/Http/routes.php';
+        require __DIR__ . '/routes/web.php';
 
         $this->loadViewsFrom(__DIR__.'/resources/views', 'static-pages');
 
@@ -22,6 +22,8 @@ class StaticPagesServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/assets' => public_path('packages/static-pages'),
         ]);
+    
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
     public function register()

@@ -1,9 +1,5 @@
 @extends('admin.main')
 
-@section('css')
-    @include('static-pages::basis.css')
-@endsection
-
 @section('body-title')
     {{ trans('static-pages::pages.settings.title') }}
 @endsection
@@ -54,11 +50,16 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-flat">{{ trans('static-pages::pages.button.save') }}</button>
+                <button type="submit"
+                        class="btn btn-primary btn-flat">{{ trans('static-pages::pages.button.save') }}</button>
 
             </form>
 
         </div>
 
     </div>
+@endsection
+
+@section('css')
+    <link href='/packages/static-pages/css/static-pages.css' rel='stylesheet' type='text/css'>
 @endsection

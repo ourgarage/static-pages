@@ -1,9 +1,5 @@
 @extends('admin.main')
 
-@section('css')
-    @include('static-pages::basis.css')
-@endsection
-
 @section('body-title')
 
     {{ trans('static-pages::pages.index.title') }}
@@ -20,4 +16,8 @@
         @include('static-pages::admin.pages-table', compact('pages'))
     </div>
 
+@endsection
+
+@section('css')
+    <link href='/packages/static-pages/css/static-pages.css' rel='stylesheet' type='text/css'>
 @endsection
